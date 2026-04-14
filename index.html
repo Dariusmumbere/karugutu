@@ -34,7 +34,32 @@ html{scroll-behavior:smooth;font-size:16px;}
 body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
 .display,h1,h2,h3,.serif{font-family:'Libre Baskerville',Georgia,serif;}
 body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.022;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+.partner-logos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 20px;
+  align-items: center;
+}
 
+.partner-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.partner-card img {
+  max-width: 100%;
+  max-height: 60px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  transition: 0.3s ease;
+}
+
+.partner-card img:hover {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
 /* NAVBAR */
 .navbar{position:fixed;top:0;left:0;right:0;z-index:1000;height:80px;display:flex;align-items:center;justify-content:space-between;padding:0 5%;background:rgba(253,250,244,.94);backdrop-filter:blur(24px) saturate(1.6);border-bottom:1px solid var(--line);transition:height .4s var(--ease),box-shadow .4s;}
 .navbar.scrolled{height:68px;box-shadow:0 4px 32px rgba(13,59,40,.09);}
