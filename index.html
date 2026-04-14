@@ -311,32 +311,6 @@ footer{background:var(--ink);color:rgba(255,255,255,.62);padding:68px 5% 34px;}
 .btt.show{opacity:1;transform:translateY(0);pointer-events:all;}
 .btt:hover{background:var(--green-mist);transform:translateY(-4px);}
 
-.partner-logos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 20px;
-  align-items: center;
-}
-
-.partner-card {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-}
-
-.partner-card img {
-  max-width: 100%;
-  max-height: 60px;
-  object-fit: contain;
-  filter: grayscale(100%);
-  transition: 0.3s ease;
-}
-
-.partner-card img:hover {
-  filter: grayscale(0%);
-  transform: scale(1.05);
-}
 /* RESPONSIVE */
 @media(max-width:1100px){
   .about-grid,.gov-grid,.pop-layout,.contact-layout,.links-layout{grid-template-columns:1fr;gap:44px;}
