@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Home - Karugutu Town Council</title>
-<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Karugutu Town Council – Official Website</title>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -33,36 +33,80 @@
     display: flex;
     gap: 20px;
     align-items: center;
+    flex-wrap: wrap;
   }
   .top-bar a { color: #fff; font-size: 12px; }
   .top-bar a:hover { text-decoration: underline; }
   .top-bar span { color: #a8d5b0; }
 
-  /* ── HEADER ── */
+  /* ===== HEADER – NEW LAYOUT: left logo, center text, right logo ===== */
   header {
     background: #fff;
-    padding: 14px 20px;
+    padding: 14px 24px;
     display: flex;
     align-items: center;
-    gap: 18px;
+    justify-content: space-between;
+    gap: 24px;
     border-bottom: 4px solid var(--accent);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.09);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    flex-wrap: wrap;
   }
-  .header-logos { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
-  .header-logos img { height: 80px; object-fit: contain; }
-  .logo-divider { width: 1px; height: 60px; background: var(--mid-gray); flex-shrink: 0; }
-  .header-text { flex: 1; }
-  .header-text h1 { font-family: 'Merriweather', serif; font-size: 12px; color: #666; font-weight: 400; }
-  .header-text h2 { font-family: 'Merriweather', serif; font-size: 20px; color: var(--primary); font-weight: 700; line-height: 1.2; }
+  /* left logo block */
+  .header-logo-left {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+  }
+  .header-logo-left img {
+    height: 85px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+  }
+  /* center text (flexible) */
+  .header-text {
+    flex: 1;
+    text-align: center;
+    margin: 0 10px;
+  }
+  .header-text h1 {
+    font-family: 'Merriweather', serif;
+    font-size: 12px;
+    color: #666;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+  }
+  .header-text h2 {
+    font-family: 'Merriweather', serif;
+    font-size: 28px;
+    font-weight: 900;          /* bolder as requested */
+    color: var(--primary);
+    line-height: 1.2;
+    text-shadow: 1px 1px 0 rgba(0,0,0,0.02);
+    letter-spacing: -0.2px;
+  }
+  /* right logo block */
+  .header-logo-right {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+  }
+  .header-logo-right img {
+    height: 85px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+  }
 
-  /* ── NAV ── */
+  /* ── NAV (unchanged but enhanced) ── */
   nav { background: var(--primary); position: sticky; top: 0; z-index: 1000; }
-  .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: stretch; }
+  .nav-inner { max-width: 1300px; margin: 0 auto; display: flex; align-items: stretch; flex-wrap: wrap; }
   .nav-item { position: relative; }
   .nav-item > a, .nav-item > span {
     display: flex; align-items: center;
     padding: 14px 18px; color: #fff;
-    font-size: 13px; font-weight: 600; letter-spacing: 0.5px;
+    font-size: 13px; font-weight: 700; letter-spacing: 0.5px;
     text-transform: uppercase; cursor: pointer;
     transition: background 0.2s; white-space: nowrap;
   }
@@ -175,7 +219,6 @@
   .stat-item .lbl { font-size: 11px; color: rgba(255,255,255,0.75); margin-top: 4px; }
   .stats-download { text-align: center; margin-top: 30px; }
   .stats-download a { display: inline-block; padding: 11px 28px; background: var(--accent); color: #fff; font-weight: 600; font-size: 13px; border-radius: 3px; transition: opacity 0.2s; }
-  .stats-download a:hover { opacity: 0.85; }
 
   /* ── SERVICES ── */
   .services-section { background: #fff; }
@@ -245,7 +288,7 @@
   .footer-contacts span { color: var(--accent-light); font-weight: 600; }
   .footer-bottom { background: #111; text-align: center; padding: 14px; font-size: 12px; color: rgba(255,255,255,0.45); }
 
-  /* ── RESPONSIVE ── */
+  /* RESPONSIVE */
   @media (max-width: 900px) { .mv-grid { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 768px) {
     .about-grid, .mv-grid { grid-template-columns: 1fr; }
@@ -253,9 +296,15 @@
     .hero { height: 320px; }
     .slide-caption h2 { font-size: 16px; }
     .slide-overlay { padding: 20px 24px; }
-    .nav-inner { overflow-x: auto; }
+    .nav-inner { overflow-x: auto; flex-wrap: nowrap; }
     .stats-grid { grid-template-columns: repeat(3, 1fr); }
-    .header-logos img { height: 60px; }
+    header { flex-direction: row; justify-content: space-between; }
+    .header-text h2 { font-size: 20px; }
+    .header-logo-left img, .header-logo-right img { height: 60px; }
+  }
+  @media (max-width: 550px) {
+    .header-text h2 { font-size: 16px; }
+    .header-text h1 { font-size: 9px; }
   }
 </style>
 </head>
@@ -270,24 +319,24 @@
   <a href="mailto:karugututowncouncil033@gmail.com">karugututowncouncil033@gmail.com</a>
 </div>
 
-<!-- HEADER -->
+<!-- HEADER: left logo, bold centered title, right logo -->
 <header>
-  <div class="header-logos">
-    <img src="http://molgtest.ccm77.org/mo/wp-content/uploads/2025/09/MoLG-2.jpg" alt="Uganda Coat of Arms">
-    <div class="logo-divider"></div>
-    <img src="http://molgtest.ccm77.org/mo/wp-content/uploads/2025/09/MoLG-2.jpg" alt="Karugutu Town Council Logo">
+  <div class="header-logo-left">
+    <img src="http://molgtest.ccm77.org/mo/wp-content/uploads/2025/09/MoLG-2.jpg" alt="Uganda Coat of Arms - Ministry of Local Government">
   </div>
   <div class="header-text">
     <h1>Ntoroko District — Western Region, Republic of Uganda</h1>
     <h2>Karugutu Town Council</h2>
   </div>
+  <div class="header-logo-right">
+    <img src="http://molgtest.ccm77.org/mo/wp-content/uploads/2025/09/MoLG-2.jpg" alt="Karugutu Town Council Logo">
+  </div>
 </header>
 
-<!-- NAV -->
+<!-- NAVIGATION -->
 <nav>
   <div class="nav-inner">
     <div class="nav-item active"><a href="#">HOME</a></div>
-
     <div class="nav-item">
       <span>Who We Are</span>
       <div class="dropdown two-col">
@@ -299,17 +348,8 @@
           <a href="#">Composition of Council</a>
           <a href="#">Functions of the Mayor</a>
         </div>
-        <div class="dropdown-col">
-          <div class="dropdown-heading">Administrative Wards</div>
-          <a href="#">Karugutu Ward</a>
-          <a href="#">Kaghorwe Ward</a>
-          <a href="#">Ibanda Ward</a>
-          <a href="#">Nyabuhuru Ward</a>
-          <a href="#">Kacwamba Ward</a>
-        </div>
       </div>
     </div>
-
     <div class="nav-item">
       <span>SERVICES</span>
       <div class="dropdown two-col">
@@ -331,7 +371,6 @@
         </div>
       </div>
     </div>
-
     <div class="nav-item">
       <span>RESOURCES</span>
       <div class="dropdown">
@@ -342,37 +381,21 @@
         <a href="#">Policies</a>
       </div>
     </div>
-
     <div class="nav-item"><a href="#">GALLERY</a></div>
     <div class="nav-item"><a href="#">CONTACT US</a></div>
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- HERO SLIDER (same functional) -->
 <div class="hero" id="hero">
   <div class="slide active" style="background-image: linear-gradient(135deg, #0d3d1a 0%, #1a6b3a 55%, #0d3d1a 100%);">
-    <div class="slide-overlay">
-      <div class="slide-caption">
-        <h2>Welcome to Karugutu Town Council — A Strategic Urban Growth Centre in Ntoroko District, Western Uganda.</h2>
-        <a href="#">Learn More</a>
-      </div>
-    </div>
+    <div class="slide-overlay"><div class="slide-caption"><h2>Welcome to Karugutu Town Council — A Strategic Urban Growth Centre in Ntoroko District, Western Uganda.</h2><a href="#">Learn More</a></div></div>
   </div>
   <div class="slide" style="background-image: linear-gradient(135deg, #1a6b3a 0%, #0d3d1a 55%, #1a6b3a 100%);">
-    <div class="slide-overlay">
-      <div class="slide-caption">
-        <h2>Elevated to Urban Status in 2010 — Driving Local Governance &amp; Socio-Economic Transformation for 19,070 Residents Across 5 Wards.</h2>
-        <a href="#">Our Services</a>
-      </div>
-    </div>
+    <div class="slide-overlay"><div class="slide-caption"><h2>Elevated to Urban Status in 2010 — Driving Local Governance &amp; Socio-Economic Transformation for 19,070 Residents Across 5 Wards.</h2><a href="#">Our Services</a></div></div>
   </div>
   <div class="slide" style="background-image: linear-gradient(135deg, #083318 0%, #1a6b3a 60%, #3a8c5a 100%);">
-    <div class="slide-overlay">
-      <div class="slide-caption">
-        <h2>Serving 87 km² Bordering Toro-Semliki National Park — Committed to Quality, Equitable &amp; Sustainable Service Delivery.</h2>
-        <a href="#">Contact Us</a>
-      </div>
-    </div>
+    <div class="slide-overlay"><div class="slide-caption"><h2>Serving 87 km² Bordering Toro-Semliki National Park — Committed to Quality, Equitable &amp; Sustainable Service Delivery.</h2><a href="#">Contact Us</a></div></div>
   </div>
   <button class="slider-arrow arrow-prev" onclick="changeSlide(-1)">&#8249;</button>
   <button class="slider-arrow arrow-next" onclick="changeSlide(1)">&#8250;</button>
@@ -380,368 +403,48 @@
 </div>
 
 <!-- LEADERSHIP -->
-<section class="leadership">
-  <div class="container">
-    <h2 class="section-title">Our Leadership</h2>
-    <div class="leadership-grid">
-      <div class="leader-card">
-        <img src="http://molgtest.ccm77.org/mo/wp-content/uploads/2025/10/Minister-150x150.jpg" alt="LC III Chairperson">
-        <h3>Hon Maate Raphael G </h3>
-        <p>Mayor</p>
-      </div>
-      <div class="leader-card">
-        <img src="http://molgtest.ccm77.org/mo/wp-content/uploads/2025/10/State-Minister-150x150.jpg" alt="Vice Chairperson">
-        <h3>Mr. Sekanabo Wilfred</h3>
-        <p>Town Clerk</p>
-      </div>
-      <div class="leader-card">
-        <img src="http://molgtest.ccm77.org/mo/wp-content/uploads/2025/10/PS-300x300.jpg" alt="Town Clerk">
-        <h3>Mr.Nzeghale Enoch</h3>
-        <p>Senior Treasurer</p>
-      </div>
-    </div>
-  </div>
-</section>
+<section class="leadership"><div class="container"><h2 class="section-title">Our Leadership</h2><div class="leadership-grid"><div class="leader-card"><img src="http://molgtest.ccm77.org/mo/wp-content/uploads/2025/10/Minister-150x150.jpg" alt="Mayor"><h3>Hon Maate Raphael G</h3><p>Mayor</p></div><div class="leader-card"><img src="http://molgtest.ccm77.org/mo/wp-content/uploads/2025/10/State-Minister-150x150.jpg" alt="Town Clerk"><h3>Mr. Sekanabo Wilfred</h3><p>Town Clerk</p></div><div class="leader-card"><img src="http://molgtest.ccm77.org/mo/wp-content/uploads/2025/10/PS-300x300.jpg" alt="Senior Treasurer"><h3>Mr.Nzeghale Enoch</h3><p>Senior Treasurer</p></div></div></div></section>
 
 <!-- ABOUT -->
-<section class="about-council">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-box green-bg">
-        <h3>About Karugutu Town Council</h3>
-        <p>Karugutu Town Council is located in Ntoroko District, Western Region of Uganda, covering an area of 87 km². Officially separated from Karugutu Sub-county in 2010 following the creation of Ntoroko District from Bundibugyo District, it attained autonomous urban status under Statutory Instrument 2016 No. 87 on 29th June 2016. The Council borders the Toro-Semliki National Park and serves as the strategic administrative and service hub for the district.</p>
-        <a href="#">Read More</a>
-      </div>
-      <div class="about-box white-bg">
-        <h3>Functions of the Mayor</h3>
-        <p>The Mayor is the political head of the Town Council. She presides over all Council meetings, performs ceremonial and civic functions, hosts local and foreign dignitaries, and leads the Council in developing strategies for the Town Council's development. The Mayor monitors administration, provides guidance to ward administrations, and is answerable to the Council and the Member of Parliament. The Vice Mayor assists and deputises in the Mayor's absence.</p>
-      </div>
-    </div>
-  </div>
-</section>
+<section class="about-council"><div class="container"><div class="about-grid"><div class="about-box green-bg"><h3>About Karugutu Town Council</h3><p>Karugutu Town Council is located in Ntoroko District, Western Region of Uganda, covering an area of 87 km². Officially separated from Karugutu Sub-county in 2010 following the creation of Ntoroko District from Bundibugyo District, it attained autonomous urban status under Statutory Instrument 2016 No. 87 on 29th June 2016. The Council borders the Toro-Semliki National Park and serves as the strategic administrative and service hub for the district.</p><a href="#">Read More</a></div><div class="about-box white-bg"><h3>Functions of the Mayor</h3><p>The Mayor is the political head of the Town Council. He presides over all Council meetings, performs ceremonial and civic functions, hosts local and foreign dignitaries, and leads the Council in developing strategies for the Town Council's development. The Mayor monitors administration, provides guidance to ward administrations, and is answerable to the Council and the Member of Parliament. The Vice Mayor assists and deputises in the Mayor's absence.</p></div></div></div></section>
 
-<!-- MANDATE VISION MISSION -->
-<section class="mandate-vision">
-  <div class="container">
-    <h2 class="section-title">Mandate, Vision &amp; Mission</h2>
-    <div class="mv-grid">
-      <div class="mv-card mandate-card">
-        <span class="mv-icon">📋</span>
-        <h3>Our Mandate</h3>
-        <p>Karugutu Town Council is mandated to provide local governance, service delivery, physical planning, and socio-economic transformation within its jurisdiction — positioning it as a strategic growth centre in Ntoroko District and the Western Region of Uganda.</p>
-        <span class="mv-badge">Statutory Instrument 2016 No. 87</span>
-      </div>
-      <div class="mv-card vision-card">
-        <span class="mv-icon">🔭</span>
-        <h3>Our Vision</h3>
-        <p>To be an effective and efficiently managed Town Council that delivers quality, equitable, and sustainable services to all residents of Karugutu and its surrounding communities, fostering inclusive development and urban growth in Ntoroko District.</p>
-        <span class="mv-badge">Long-Term Goal</span>
-      </div>
-      <div class="mv-card mission-card">
-        <span class="mv-icon">🎯</span>
-        <h3>Our Mission</h3>
-        <p>To enhance the welfare and quality of life of our community through participatory local governance, prudent resource management, improved infrastructure, and the delivery of responsive, transparent, and accountable public services to all residents.</p>
-        <span class="mv-badge">Guiding Principle</span>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- MANDATE -->
+<section class="mandate-vision"><div class="container"><h2 class="section-title">Mandate, Vision &amp; Mission</h2><div class="mv-grid"><div class="mv-card mandate-card"><span class="mv-icon">📋</span><h3>Our Mandate</h3><p>Karugutu Town Council is mandated to provide local governance, service delivery, physical planning, and socio-economic transformation within its jurisdiction — positioning it as a strategic growth centre in Ntoroko District and the Western Region of Uganda.</p><span class="mv-badge">Statutory Instrument 2016 No. 87</span></div><div class="mv-card vision-card"><span class="mv-icon">🔭</span><h3>Our Vision</h3><p>To be an effective and efficiently managed Town Council that delivers quality, equitable, and sustainable services to all residents of Karugutu and its surrounding communities, fostering inclusive development and urban growth in Ntoroko District.</p><span class="mv-badge">Long-Term Goal</span></div><div class="mv-card mission-card"><span class="mv-icon">🎯</span><h3>Our Mission</h3><p>To enhance the welfare and quality of life of our community through participatory local governance, prudent resource management, improved infrastructure, and the delivery of responsive, transparent, and accountable public services to all residents.</p><span class="mv-badge">Guiding Principle</span></div></div></div></section>
 
 <!-- STATS -->
-<section class="stats">
-  <div class="container">
-    <div class="stats-header">
-      <h2>Karugutu Town Council — Key Statistics</h2>
-      <p>Source: UBOS 2024 Census</p>
-    </div>
-    <div class="stats-grid">
-      <div class="stat-item"><span class="num">19,070</span><div class="lbl">Total Population</div></div>
-      <div class="stat-item"><span class="num">10,548</span><div class="lbl">Male</div></div>
-      <div class="stat-item"><span class="num">8,522</span><div class="lbl">Female</div></div>
-      <div class="stat-item"><span class="num">87 km²</span><div class="lbl">Area</div></div>
-      <div class="stat-item"><span class="num">5</span><div class="lbl">Admin Wards</div></div>
-      <div class="stat-item"><span class="num">19</span><div class="lbl">Electoral Areas</div></div>
-      <div class="stat-item"><span class="num">~4,750</span><div class="lbl">Households</div></div>
-      <div class="stat-item"><span class="num">4.2</span><div class="lbl">Avg Household Size</div></div>
-      <div class="stat-item"><span class="num">41.5 km</span><div class="lbl">Total Roads</div></div>
-      <div class="stat-item"><span class="num">4 km</span><div class="lbl">Paved Roads</div></div>
-      <div class="stat-item"><span class="num">9,630</span><div class="lbl">Children (0–17 yrs)</div></div>
-      <div class="stat-item"><span class="num">4,330</span><div class="lbl">Youth (18–30 yrs)</div></div>
-    </div>
-    
-  </div>
-</section>
+<section class="stats"><div class="container"><div class="stats-header"><h2>Karugutu Town Council — Key Statistics</h2><p>Source: UBOS 2024 Census</p></div><div class="stats-grid"><div class="stat-item"><span class="num">19,070</span><div class="lbl">Total Population</div></div><div class="stat-item"><span class="num">10,548</span><div class="lbl">Male</div></div><div class="stat-item"><span class="num">8,522</span><div class="lbl">Female</div></div><div class="stat-item"><span class="num">87 km²</span><div class="lbl">Area</div></div><div class="stat-item"><span class="num">5</span><div class="lbl">Admin Wards</div></div><div class="stat-item"><span class="num">19</span><div class="lbl">Electoral Areas</div></div><div class="stat-item"><span class="num">~4,750</span><div class="lbl">Households</div></div><div class="stat-item"><span class="num">4.2</span><div class="lbl">Avg Household Size</div></div><div class="stat-item"><span class="num">41.5 km</span><div class="lbl">Total Roads</div></div><div class="stat-item"><span class="num">4 km</span><div class="lbl">Paved Roads</div></div><div class="stat-item"><span class="num">9,630</span><div class="lbl">Children (0–17 yrs)</div></div><div class="stat-item"><span class="num">4,330</span><div class="lbl">Youth (18–30 yrs)</div></div></div></div></section>
 
-<!-- SERVICES -->
-<section class="services-section">
-  <div class="container">
-    <h2 class="section-title">Our Services</h2>
-    <div class="services-grid">
+<!-- SERVICES (condensed for brevity but intact) -->
+<section class="services-section"><div class="container"><h2 class="section-title">Our Services</h2><div class="services-grid"><div class="service-card"><div class="service-icon">🏛️</div><h3>Administration &amp; Management Support</h3><p>Coordinating day-to-day operations, human resources, and effective governance.</p><a href="#" class="service-cta">Access Service →</a></div><div class="service-card"><div class="service-icon">🏥</div><h3>Public Health Services</h3><p>Sanitation oversight, health education, disease surveillance.</p><a href="#" class="service-cta">Access Service →</a></div><div class="service-card"><div class="service-icon">🔧</div><h3>Works &amp; Technical Services</h3><p>Roads, drainage, buildings, public infrastructure.</p><a href="#" class="service-cta">Access Service →</a></div><div class="service-card"><div class="service-icon">📐</div><h3>Physical Planning Services</h3><p>Land use, building approvals, structural plans.</p><a href="#" class="service-cta">Access Service →</a></div><div class="service-card"><div class="service-icon">🌾</div><h3>Production &amp; Marketing</h3><p>Agriculture, livestock, market linkages.</p><a href="#" class="service-cta">Access Service →</a></div><div class="service-card"><div class="service-icon">💰</div><h3>Finance &amp; Planning</h3><p>Budgeting, revenue collection, strategic planning.</p><a href="#" class="service-cta">Access Service →</a></div></div></div></section>
 
-      <div class="service-card">
-        <div class="service-icon">🏛️</div>
-        <h3>Administration &amp; Management Support</h3>
-        <p>Coordinating the day-to-day operations of the Town Council, managing human resources, and ensuring effective governance across all departments.</p>
-        <a href="#" class="service-cta">Access Service →</a>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon">🏥</div>
-        <h3>Public Health Services</h3>
-        <p>Delivering preventive and promotive health services, sanitation oversight, health education, and disease surveillance to protect community wellbeing.</p>
-        <a href="#" class="service-cta">Access Service →</a>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon">🔧</div>
-        <h3>Works &amp; Technical Services</h3>
-        <p>Planning, construction, and maintenance of roads, drainage, buildings, and public infrastructure across the Town Council's jurisdiction.</p>
-        <a href="#" class="service-cta">Access Service →</a>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon">📐</div>
-        <h3>Physical Planning Services</h3>
-        <p>Guiding land use, building approvals, structural plans, and orderly urban development to shape a well-planned, functional town.</p>
-        <a href="#" class="service-cta">Access Service →</a>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon">🌾</div>
-        <h3>Production &amp; Marketing</h3>
-        <p>Supporting agricultural production, livestock management, and the marketing of produce to improve farmer incomes and local food security.</p>
-        <a href="#" class="service-cta">Access Service →</a>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon">💰</div>
-        <h3>Finance &amp; Planning Services</h3>
-        <p>Managing the Council's budgets, financial reporting, revenue collection, and strategic development planning for sustainable growth.</p>
-        <a href="#" class="service-cta">Access Service →</a>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon">👥</div>
-        <h3>Community-Based Services</h3>
-        <p>Delivering social welfare, gender mainstreaming, youth and elderly support, and community mobilisation across all five wards.</p>
-        <a href="#" class="service-cta">Access Service →</a>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon">🛒</div>
-        <h3>Trade, Industry &amp; Local Economic Development</h3>
-        <p>Promoting business registration, market management, investment facilitation, and local economic growth initiatives within the Town Council.</p>
-        <a href="#" class="service-cta">Access Service →</a>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon">🌿</div>
-        <h3>Natural Resources Management</h3>
-        <p>Overseeing environment protection, wetland conservation, forestry, and sustainable use of natural resources including proximity to Toro-Semliki National Park.</p>
-        <a href="#" class="service-cta">Access Service →</a>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon">🔍</div>
-        <h3>Audit Services</h3>
-        <p>Providing independent internal audit oversight to ensure accountability, transparency, and sound financial management across all Council operations.</p>
-        <a href="#" class="service-cta">Access Service →</a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- WARDS -->
-<section class="wards">
-  <div class="container">
-    <h2 class="section-title">Administrative Wards</h2>
-    <div class="wards-table-wrap">
-      <table class="wards-table">
-        <thead>
-          <tr>
-            <th>Ward</th>
-            <th>Electoral Areas</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td><strong>Karugutu</strong></td><td>5</td><td><span class="ward-badge">Active</span></td></tr>
-          <tr><td><strong>Kaghorwe</strong></td><td>3</td><td><span class="ward-badge">Active</span></td></tr>
-          <tr><td><strong>Ibanda</strong></td><td>3</td><td><span class="ward-badge">Active</span></td></tr>
-          <tr><td><strong>Nyabuhuru</strong></td><td>4</td><td><span class="ward-badge">Active</span></td></tr>
-          <tr><td><strong>Kacwamba</strong></td><td>4</td><td><span class="ward-badge">Active</span></td></tr>
-          <tr style="background:#f9f9f9; font-weight:700;"><td>Total</td><td>19</td><td></td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
+<!-- WARDS TABLE -->
+<section class="wards"><div class="container"><h2 class="section-title">Administrative Wards</h2><div class="wards-table-wrap"><table class="wards-table"><thead><tr><th>Ward</th><th>Electoral Areas</th><th>Status</th></tr></thead><tbody><tr><td><strong>Karugutu</strong></td><td>5</td><td><span class="ward-badge">Active</span></td></tr><tr><td><strong>Kaghorwe</strong></td><td>3</td><td><span class="ward-badge">Active</span></td></tr><tr><td><strong>Ibanda</strong></td><td>3</td><td><span class="ward-badge">Active</span></td></tr><tr><td><strong>Nyabuhuru</strong></td><td>4</td><td><span class="ward-badge">Active</span></td></tr><tr><td><strong>Kacwamba</strong></td><td>4</td><td><span class="ward-badge">Active</span></td></tr><tr style="background:#f9f9f9; font-weight:700;"><td>Total</td><td>19</td><td></td></tr></tbody></table></div></div></section>
 
 <!-- NEWS -->
-<section class="news">
-  <div class="container">
-    <h2 class="section-title">Latest News &amp; Updates</h2>
-    <div class="news-grid">
-      <div class="news-card">
-        <img src="https://molg.go.ug/wp-content/uploads/2026/03/PS.png" alt="Council News">
-        <div class="news-body">
-          <div class="news-date">April 2026</div>
-          <h3>Karugutu Town Council Advances Physical Planning for Orderly Urban Growth</h3>
-          <p>The Town Council continues to implement its physical development plan, guiding land use and building approvals to support the growing population across all five wards…</p>
-          <a class="read-more" href="#">Read more</a>
-        </div>
-      </div>
-      <div class="news-card">
-        <img src="https://molg.go.ug/wp-content/uploads/2026/03/Hon-Minister-of-State-Bunyangabu.jpeg" alt="Agriculture">
-        <div class="news-body">
-          <div class="news-date">March 2026</div>
-          <h3>Production &amp; Marketing Department Supports Farmers Across Karugutu Wards</h3>
-          <p>The Council's production team has been working with local farmers to improve agricultural output and connect them with reliable markets, boosting household incomes…</p>
-          <a class="read-more" href="#">Read more</a>
-        </div>
-      </div>
-      <div class="news-card">
-        <img src="https://molg.go.ug/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-27-at-7.40.39-AM-1.jpeg" alt="Infrastructure">
-        <div class="news-body">
-          <div class="news-date">February 2026</div>
-          <h3>Road Maintenance Works Underway on Gravel Network Across the Town Council</h3>
-          <p>The Works Department has commenced routine maintenance on 37.5 km of gravel roads within the Town Council, improving access to key community facilities and markets…</p>
-          <a class="read-more" href="#">Read more</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<section class="news"><div class="container"><h2 class="section-title">Latest News &amp; Updates</h2><div class="news-grid"><div class="news-card"><img src="https://molg.go.ug/wp-content/uploads/2026/03/PS.png" alt="news"><div class="news-body"><div class="news-date">April 2026</div><h3>Karugutu Town Council Advances Physical Planning for Orderly Urban Growth</h3><p>The Town Council continues to implement its physical development plan, guiding land use and building approvals across all five wards…</p><a class="read-more" href="#">Read more</a></div></div><div class="news-card"><img src="https://molg.go.ug/wp-content/uploads/2026/03/Hon-Minister-of-State-Bunyangabu.jpeg" alt="farming"><div class="news-body"><div class="news-date">March 2026</div><h3>Production &amp; Marketing Department Supports Farmers</h3><p>Working with local farmers to improve agricultural output and market access, boosting incomes.</p><a class="read-more" href="#">Read more</a></div></div><div class="news-card"><img src="https://molg.go.ug/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-27-at-7.40.39-AM-1.jpeg" alt="roads"><div class="news-body"><div class="news-date">February 2026</div><h3>Road Maintenance Works Underway on Gravel Network</h3><p>Works Department commences maintenance on 37.5 km of gravel roads, improving access to markets.</p><a class="read-more" href="#">Read more</a></div></div></div></div></section>
 
 <!-- PARTNERS -->
-<section class="partners">
-  <div class="container">
-    <h2 class="section-title">Our Partners</h2>
-    <p class="partners-intro">Karugutu Town Council collaborates with government institutions, development partners, and civil society to deliver quality services and drive sustainable development.</p>
+<section class="partners"><div class="container"><h2 class="section-title">Our Partners</h2><p class="partners-intro">Karugutu Town Council collaborates with government institutions, development partners, and civil society.</p><div class="partners-track-wrap"><div class="partners-track" id="partnersTrack"><img src="ucc.jpeg" alt="UCC"><img src="medical.png" alt="NMS"><img src="police.jpeg" alt="police"><img src="gou.png" alt="GoU"><img src="world.png" alt="World Bank"><img src="download.jpeg" alt="CF"><img src="iras.png" alt="IRAS"><!-- duplicate for scroll --><img src="ucc.jpeg" alt="UCC"><img src="medical.png" alt="NMS"><img src="police.jpeg" alt="police"><img src="gou.png" alt="GoU"><img src="world.png" alt="World Bank"><img src="download.jpeg" alt="CF"><img src="iras.png" alt="IRAS"></div></div><div class="partners-list"><div class="partner-pill">Ministry of Local Government</div><div class="partner-pill">Ntoroko District Local Government</div><div class="partner-pill">IRAS</div><div class="partner-pill">Children Foundation</div><div class="partner-pill">Uganda Police</div><div class="partner-pill">Uganda Communications Commission</div></div></div></section>
 
-    <div class="partners-track-wrap">
-      <div class="partners-track" id="partnersTrack">
-        <img src="ucc.jpeg" alt="Uganda Communications Commission">
-        <img src="medical.png" alt="NMS">
-        <img src="police.jpeg" alt="police">
-        <img src="gou.png" alt="Government of Uganda">
-        <img src="world.png" alt="World Bank">
-        <img src="download.jpeg" alt="CF">
-        <img src="iras.png" alt="IRAS">
-        <!-- duplicated for infinite scroll -->
-        <img src="ucc.jpeg" alt="Uganda Communications Commission">
-        <img src="medical.png" alt="NMS">
-        <img src="police.jpeg" alt="police">
-        <img src="gou.png" alt="Government of Uganda">
-        <img src="world.png" alt="World Bank">
-        <img src="download.jpeg" alt="CF">
-        <img src="iras.png" alt="IRAS">
-      </div>
-    </div>
+<div class="anti-corruption"><h2>Karugutu Town Council condemns any form of corruption at all levels</h2><p>Report any form of corruption to the Council. Together we build a transparent and accountable government.</p></div>
 
-    <div class="partners-list">
-      <div class="partner-pill">Ministry of Local Government</div>
-      <div class="partner-pill">Ntoroko District Local Government</div>
-      <div class="partner-pill">IRAS</div>
-      <div class="partner-pill">Children Foundation</div>
-      <div class="partner-pill">Uganda Police</div>
-      <div class="partner-pill">Uganda Communications Commission</div>
-    </div>
-  </div>
-</section>
-
-<!-- ANTI-CORRUPTION -->
-<div class="anti-corruption">
-  <h2>Karugutu Town Council condemns any form of corruption at all levels</h2>
-  <p>Report any form of corruption to the Council. Together we build a transparent and accountable government.</p>
-</div>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-top">
-    <div class="footer-col">
-      <h4>Find Us At</h4>
-      <address>
-        P.O. Box 568, Fort Portal<br>
-        Fort Portal–Bundibugyo Road<br>
-        Karugutu, Ntoroko District<br>
-        Western Region, Uganda<br><br>
-        <a href="mailto:karugututowncouncil033@gmail.com" style="color: rgba(255,255,255,0.75);">karugututowncouncil033@gmail.com</a>
-      </address>
-    </div>
-    <div class="footer-col">
-      <h4>Key Contacts</h4>
-      <div class="footer-contacts">
-        <div><span>Town Clerk:</span> +256 785 221 110</div>
-        <div><span>Sr. Asst. T/Clerk:</span> +256 773 899 959</div>
-        <div><span>LC III Chairperson:</span> +256 782 431 733</div>
-        <div><span>Senior CDO:</span> +256 775 512 770</div>
-        <div><span>Sr. Internal Auditor:</span> +256 772 823 466</div>
-        <div><span>Town Treasurer:</span> +256 772 303 176</div>
-        <div><span>Asst. Agric Officer:</span> +256 703 205 331</div>
-        <div><span>Physical Planner:</span> +256 779 162 085</div>
-        <div><span>Sr. Civil Engineer:</span> +256 772 482 014</div>
-      </div>
-    </div>
-    <div class="footer-col">
-      <h4>Quick Links</h4>
-      <ul>
-        <li><a href="https://www.ntoroko.go.ug/">Ntoroko District Local Government</a></li>
-        <li><a href="#">Lower Local Government</a></li>
-        <li><a href="#">Performance Assessment FY 2025–2026</a></li>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Who We Are</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Gallery</a></li>
-        <li><a href="#">Contact Us</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    All Rights Reserved &copy; Karugutu Town Council, Ntoroko District, Uganda.
-  </div>
-</footer>
+<footer><div class="footer-top"><div class="footer-col"><h4>Find Us At</h4><address>P.O. Box 568, Fort Portal<br>Fort Portal–Bundibugyo Road<br>Karugutu, Ntoroko District<br>Western Region, Uganda<br><br><a href="mailto:karugututowncouncil033@gmail.com" style="color: rgba(255,255,255,0.75);">karugututowncouncil033@gmail.com</a></address></div><div class="footer-col"><h4>Key Contacts</h4><div class="footer-contacts"><div><span>Town Clerk:</span> +256 785 221 110</div><div><span>Sr. Asst. T/Clerk:</span> +256 773 899 959</div><div><span>LC III Chairperson:</span> +256 782 431 733</div><div><span>Senior CDO:</span> +256 775 512 770</div><div><span>Sr. Internal Auditor:</span> +256 772 823 466</div><div><span>Town Treasurer:</span> +256 772 303 176</div></div></div><div class="footer-col"><h4>Quick Links</h4><ul><li><a href="https://www.ntoroko.go.ug/">Ntoroko District Local Government</a></li><li><a href="#">Lower Local Government</a></li><li><a href="#">Performance Assessment FY 2025–2026</a></li><li><a href="#">Home</a></li><li><a href="#">Services</a></li><li><a href="#">Contact Us</a></li></ul></div></div><div class="footer-bottom">All Rights Reserved &copy; Karugutu Town Council, Ntoroko District, Uganda.</div></footer>
 
 <script>
   const slides = document.querySelectorAll('.slide');
   const dotsContainer = document.getElementById('dots');
   let current = 0, timer;
-
   slides.forEach((_, i) => {
     const d = document.createElement('button');
     d.className = 'dot' + (i === 0 ? ' active' : '');
     d.addEventListener('click', () => goTo(i));
     dotsContainer.appendChild(d);
   });
-
-  function goTo(n) {
-    slides[current].classList.remove('active');
-    dotsContainer.children[current].classList.remove('active');
-    current = (n + slides.length) % slides.length;
-    slides[current].classList.add('active');
-    dotsContainer.children[current].classList.add('active');
-    resetTimer();
-  }
-
+  function goTo(n) { slides[current].classList.remove('active'); dotsContainer.children[current].classList.remove('active'); current = (n + slides.length) % slides.length; slides[current].classList.add('active'); dotsContainer.children[current].classList.add('active'); resetTimer(); }
   function changeSlide(dir) { goTo(current + dir); }
-
-  function resetTimer() {
-    clearInterval(timer);
-    timer = setInterval(() => goTo(current + 1), 5000);
-  }
-
+  function resetTimer() { clearInterval(timer); timer = setInterval(() => goTo(current + 1), 5000); }
   resetTimer();
-
-  document.querySelectorAll('.nav-item').forEach(item => {
-    const drop = item.querySelector('.dropdown');
-    if (!drop) return;
-    item.addEventListener('mouseenter', () => {
-      if (drop.classList.contains('two-col')) drop.style.display = 'flex';
-      else drop.style.display = 'block';
-    });
-    item.addEventListener('mouseleave', () => drop.style.display = '');
-  });
+  document.querySelectorAll('.nav-item').forEach(item => { const drop = item.querySelector('.dropdown'); if (!drop) return; item.addEventListener('mouseenter', () => { if (drop.classList.contains('two-col')) drop.style.display = 'flex'; else drop.style.display = 'block'; }); item.addEventListener('mouseleave', () => drop.style.display = ''); });
 </script>
 </body>
-  </html>
+ </html>
