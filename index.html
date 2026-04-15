@@ -39,7 +39,7 @@
   .top-bar a:hover { text-decoration: underline; }
   .top-bar span { color: #a8d5b0; }
 
-  /* ===== HEADER – NEW LAYOUT: left logo, center text, right logo ===== */
+  /* ===== HEADER – LARGER LOGOS & BOLD TEXT ===== */
   header {
     background: #fff;
     padding: 14px 24px;
@@ -51,14 +51,14 @@
     box-shadow: 0 2px 12px rgba(0,0,0,0.05);
     flex-wrap: wrap;
   }
-  /* left logo block */
+  /* left logo block - ENLARGED */
   .header-logo-left {
     flex-shrink: 0;
     display: flex;
     align-items: center;
   }
   .header-logo-left img {
-    height: 85px;
+    height: 110px;        /* increased from 85px */
     width: auto;
     object-fit: contain;
     display: block;
@@ -71,7 +71,7 @@
   }
   .header-text h1 {
     font-family: 'Merriweather', serif;
-    font-size: 12px;
+    font-size: 13px;
     color: #666;
     font-weight: 400;
     letter-spacing: 0.5px;
@@ -79,21 +79,21 @@
   }
   .header-text h2 {
     font-family: 'Merriweather', serif;
-    font-size: 28px;
-    font-weight: 900;          /* bolder as requested */
+    font-size: 32px;      /* slightly larger for emphasis */
+    font-weight: 900;
     color: var(--primary);
     line-height: 1.2;
     text-shadow: 1px 1px 0 rgba(0,0,0,0.02);
     letter-spacing: -0.2px;
   }
-  /* right logo block */
+  /* right logo block - ENLARGED */
   .header-logo-right {
     flex-shrink: 0;
     display: flex;
     align-items: center;
   }
   .header-logo-right img {
-    height: 85px;
+    height: 110px;        /* increased from 85px */
     width: auto;
     object-fit: contain;
     display: block;
@@ -136,39 +136,45 @@
   .nav-item:hover .dropdown { display: flex; }
   .nav-item:hover .dropdown:not(.two-col) { display: block; }
 
-  /* ── HERO ── */
-  .hero { position: relative; overflow: hidden; height: 480px; background: #111; }
-  .slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1s ease; background-size: cover; background-position: center; }
+  /* ── HERO WITH CUSTOM IMAGES ── */
+  .hero { position: relative; overflow: hidden; height: 520px; background: #0a2f1a; }
+  .slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1s ease; background-size: cover; background-position: center 30%; }
+  /* first slide - custom image */
+  .slide:nth-child(1) { background-image: url('https://images.pexels.com/photos/167676/africa-nature-sunset-savannah-167676.jpeg?auto=compress&cs=tinysrgb&w=1600'); background-size: cover; background-position: center; }
+  /* second slide - custom image */
+  .slide:nth-child(2) { background-image: url('https://images.pexels.com/photos/1464029/kenya-africa-masai-mara-safari-1464029.jpeg?auto=compress&cs=tinysrgb&w=1600'); background-size: cover; background-position: center; }
+  /* third slide - custom image */
+  .slide:nth-child(3) { background-image: url('https://images.pexels.com/photos/772803/pexels-photo-772803.jpeg?auto=compress&cs=tinysrgb&w=1600'); background-size: cover; background-position: center; }
   .slide.active { opacity: 1; }
   .slide-overlay {
     position: absolute; inset: 0;
-    background: linear-gradient(to right, rgba(10,60,20,0.80) 40%, rgba(0,0,0,0.15));
-    display: flex; align-items: flex-end; padding: 40px 60px;
+    background: linear-gradient(to right, rgba(10,60,20,0.80) 40%, rgba(0,0,0,0.25));
+    display: flex; align-items: flex-end; padding: 50px 60px;
   }
   .slide-caption { max-width: 680px; color: #fff; }
-  .slide-caption h2 { font-family: 'Merriweather', serif; font-size: 22px; line-height: 1.5; text-shadow: 0 2px 8px rgba(0,0,0,0.5); margin-bottom: 16px; }
+  .slide-caption h2 { font-family: 'Merriweather', serif; font-size: 26px; line-height: 1.4; text-shadow: 0 2px 12px rgba(0,0,0,0.6); margin-bottom: 20px; font-weight: 700; }
   .slide-caption a {
-    display: inline-block; padding: 10px 26px;
-    background: var(--accent); color: #fff; font-size: 13px;
-    font-weight: 700; border-radius: 3px; transition: opacity 0.2s;
+    display: inline-block; padding: 12px 32px;
+    background: var(--accent); color: #fff; font-size: 14px;
+    font-weight: 700; border-radius: 4px; transition: opacity 0.2s;
   }
-  .slide-caption a:hover { opacity: 0.85; }
-  .slider-dots { position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; }
-  .dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.4); cursor: pointer; border: none; transition: background 0.3s; }
-  .dot.active { background: var(--accent); }
-  .slider-arrow { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.15); color: #fff; border: none; font-size: 22px; padding: 12px 16px; cursor: pointer; transition: background 0.2s; z-index: 10; }
+  .slide-caption a:hover { opacity: 0.85; background: #c96e00; }
+  .slider-dots { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 15; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.5); cursor: pointer; border: none; transition: background 0.3s; }
+  .dot.active { background: var(--accent); transform: scale(1.1); }
+  .slider-arrow { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: #fff; border: none; font-size: 28px; padding: 12px 20px; cursor: pointer; transition: background 0.2s; z-index: 15; border-radius: 4px; backdrop-filter: blur(4px); }
   .slider-arrow:hover { background: var(--accent); }
-  .arrow-prev { left: 16px; }
-  .arrow-next { right: 16px; }
+  .arrow-prev { left: 20px; }
+  .arrow-next { right: 20px; }
 
   /* ── SECTION COMMON ── */
   section { padding: 60px 20px; }
   .section-title {
-    font-family: 'Merriweather', serif; font-size: 26px; color: var(--primary);
-    text-align: center; margin-bottom: 10px;
+    font-family: 'Merriweather', serif; font-size: 28px; color: var(--primary);
+    text-align: center; margin-bottom: 12px;
     position: relative; display: inline-block; left: 50%; transform: translateX(-50%);
   }
-  .section-title::after { content: ''; display: block; width: 60px; height: 3px; background: var(--accent); margin: 10px auto 0; }
+  .section-title::after { content: ''; display: block; width: 70px; height: 3px; background: var(--accent); margin: 12px auto 0; }
   .container { max-width: 1200px; margin: 0 auto; }
 
   /* ── LEADERSHIP ── */
@@ -293,18 +299,19 @@
   @media (max-width: 768px) {
     .about-grid, .mv-grid { grid-template-columns: 1fr; }
     .footer-top { grid-template-columns: 1fr; }
-    .hero { height: 320px; }
-    .slide-caption h2 { font-size: 16px; }
+    .hero { height: 360px; }
+    .slide-caption h2 { font-size: 18px; }
     .slide-overlay { padding: 20px 24px; }
     .nav-inner { overflow-x: auto; flex-wrap: nowrap; }
     .stats-grid { grid-template-columns: repeat(3, 1fr); }
     header { flex-direction: row; justify-content: space-between; }
-    .header-text h2 { font-size: 20px; }
-    .header-logo-left img, .header-logo-right img { height: 60px; }
+    .header-text h2 { font-size: 22px; }
+    .header-logo-left img, .header-logo-right img { height: 75px; }
   }
   @media (max-width: 550px) {
-    .header-text h2 { font-size: 16px; }
+    .header-text h2 { font-size: 18px; }
     .header-text h1 { font-size: 9px; }
+    .header-logo-left img, .header-logo-right img { height: 55px; }
   }
 </style>
 </head>
@@ -319,7 +326,7 @@
   <a href="mailto:karugututowncouncil033@gmail.com">karugututowncouncil033@gmail.com</a>
 </div>
 
-<!-- HEADER: left logo, bold centered title, right logo -->
+<!-- HEADER: larger logos -->
 <header>
   <div class="header-logo-left">
     <img src="http://molgtest.ccm77.org/mo/wp-content/uploads/2025/09/MoLG-2.jpg" alt="Uganda Coat of Arms - Ministry of Local Government">
@@ -329,7 +336,7 @@
     <h2>Karugutu Town Council</h2>
   </div>
   <div class="header-logo-right">
-    <img src ="logoo.jpeg" alt="Karugutu Town Council Logo">
+    <img src="logoo.jpeg" alt="Karugutu Town Council Logo">
   </div>
 </header>
 
@@ -386,15 +393,15 @@
   </div>
 </nav>
 
-<!-- HERO SLIDER (same functional) -->
+<!-- HERO SLIDER with custom images (pexels high-res) -->
 <div class="hero" id="hero">
-  <div class="slide active" style="background-image: linear-gradient(135deg, #0d3d1a 0%, #1a6b3a 55%, #0d3d1a 100%);">
+  <div class="slide active">
     <div class="slide-overlay"><div class="slide-caption"><h2>Welcome to Karugutu Town Council — A Strategic Urban Growth Centre in Ntoroko District, Western Uganda.</h2><a href="#">Learn More</a></div></div>
   </div>
-  <div class="slide" style="background-image: linear-gradient(135deg, #1a6b3a 0%, #0d3d1a 55%, #1a6b3a 100%);">
+  <div class="slide">
     <div class="slide-overlay"><div class="slide-caption"><h2>Elevated to Urban Status in 2010 — Driving Local Governance &amp; Socio-Economic Transformation for 19,070 Residents Across 5 Wards.</h2><a href="#">Our Services</a></div></div>
   </div>
-  <div class="slide" style="background-image: linear-gradient(135deg, #083318 0%, #1a6b3a 60%, #3a8c5a 100%);">
+  <div class="slide">
     <div class="slide-overlay"><div class="slide-caption"><h2>Serving 87 km² Bordering Toro-Semliki National Park — Committed to Quality, Equitable &amp; Sustainable Service Delivery.</h2><a href="#">Contact Us</a></div></div>
   </div>
   <button class="slider-arrow arrow-prev" onclick="changeSlide(-1)">&#8249;</button>
@@ -414,7 +421,7 @@
 <!-- STATS -->
 <section class="stats"><div class="container"><div class="stats-header"><h2>Karugutu Town Council — Key Statistics</h2><p>Source: UBOS 2024 Census</p></div><div class="stats-grid"><div class="stat-item"><span class="num">19,070</span><div class="lbl">Total Population</div></div><div class="stat-item"><span class="num">10,548</span><div class="lbl">Male</div></div><div class="stat-item"><span class="num">8,522</span><div class="lbl">Female</div></div><div class="stat-item"><span class="num">87 km²</span><div class="lbl">Area</div></div><div class="stat-item"><span class="num">5</span><div class="lbl">Admin Wards</div></div><div class="stat-item"><span class="num">19</span><div class="lbl">Electoral Areas</div></div><div class="stat-item"><span class="num">~4,750</span><div class="lbl">Households</div></div><div class="stat-item"><span class="num">4.2</span><div class="lbl">Avg Household Size</div></div><div class="stat-item"><span class="num">41.5 km</span><div class="lbl">Total Roads</div></div><div class="stat-item"><span class="num">4 km</span><div class="lbl">Paved Roads</div></div><div class="stat-item"><span class="num">9,630</span><div class="lbl">Children (0–17 yrs)</div></div><div class="stat-item"><span class="num">4,330</span><div class="lbl">Youth (18–30 yrs)</div></div></div></div></section>
 
-<!-- SERVICES (condensed for brevity but intact) -->
+<!-- SERVICES -->
 <section class="services-section"><div class="container"><h2 class="section-title">Our Services</h2><div class="services-grid"><div class="service-card"><div class="service-icon">🏛️</div><h3>Administration &amp; Management Support</h3><p>Coordinating day-to-day operations, human resources, and effective governance.</p><a href="#" class="service-cta">Access Service →</a></div><div class="service-card"><div class="service-icon">🏥</div><h3>Public Health Services</h3><p>Sanitation oversight, health education, disease surveillance.</p><a href="#" class="service-cta">Access Service →</a></div><div class="service-card"><div class="service-icon">🔧</div><h3>Works &amp; Technical Services</h3><p>Roads, drainage, buildings, public infrastructure.</p><a href="#" class="service-cta">Access Service →</a></div><div class="service-card"><div class="service-icon">📐</div><h3>Physical Planning Services</h3><p>Land use, building approvals, structural plans.</p><a href="#" class="service-cta">Access Service →</a></div><div class="service-card"><div class="service-icon">🌾</div><h3>Production &amp; Marketing</h3><p>Agriculture, livestock, market linkages.</p><a href="#" class="service-cta">Access Service →</a></div><div class="service-card"><div class="service-icon">💰</div><h3>Finance &amp; Planning</h3><p>Budgeting, revenue collection, strategic planning.</p><a href="#" class="service-cta">Access Service →</a></div></div></div></section>
 
 <!-- WARDS TABLE -->
@@ -424,7 +431,7 @@
 <section class="news"><div class="container"><h2 class="section-title">Latest News &amp; Updates</h2><div class="news-grid"><div class="news-card"><img src="https://molg.go.ug/wp-content/uploads/2026/03/PS.png" alt="news"><div class="news-body"><div class="news-date">April 2026</div><h3>Karugutu Town Council Advances Physical Planning for Orderly Urban Growth</h3><p>The Town Council continues to implement its physical development plan, guiding land use and building approvals across all five wards…</p><a class="read-more" href="#">Read more</a></div></div><div class="news-card"><img src="https://molg.go.ug/wp-content/uploads/2026/03/Hon-Minister-of-State-Bunyangabu.jpeg" alt="farming"><div class="news-body"><div class="news-date">March 2026</div><h3>Production &amp; Marketing Department Supports Farmers</h3><p>Working with local farmers to improve agricultural output and market access, boosting incomes.</p><a class="read-more" href="#">Read more</a></div></div><div class="news-card"><img src="https://molg.go.ug/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-27-at-7.40.39-AM-1.jpeg" alt="roads"><div class="news-body"><div class="news-date">February 2026</div><h3>Road Maintenance Works Underway on Gravel Network</h3><p>Works Department commences maintenance on 37.5 km of gravel roads, improving access to markets.</p><a class="read-more" href="#">Read more</a></div></div></div></div></section>
 
 <!-- PARTNERS -->
-<section class="partners"><div class="container"><h2 class="section-title">Our Partners</h2><p class="partners-intro">Karugutu Town Council collaborates with government institutions, development partners, and civil society.</p><div class="partners-track-wrap"><div class="partners-track" id="partnersTrack"><img src="ucc.jpeg" alt="UCC"><img src="medical.png" alt="NMS"><img src="police.jpeg" alt="police"><img src="gou.png" alt="GoU"><img src="world.png" alt="World Bank"><img src="download.jpeg" alt="CF"><img src="iras.png" alt="IRAS"><!-- duplicate for scroll --><img src="ucc.jpeg" alt="UCC"><img src="medical.png" alt="NMS"><img src="police.jpeg" alt="police"><img src="gou.png" alt="GoU"><img src="world.png" alt="World Bank"><img src="download.jpeg" alt="CF"><img src="iras.png" alt="IRAS"></div></div><div class="partners-list"><div class="partner-pill">Ministry of Local Government</div><div class="partner-pill">Ntoroko District Local Government</div><div class="partner-pill">IRAS</div><div class="partner-pill">Children Foundation</div><div class="partner-pill">Uganda Police</div><div class="partner-pill">Uganda Communications Commission</div></div></div></section>
+<section class="partners"><div class="container"><h2 class="section-title">Our Partners</h2><p class="partners-intro">Karugutu Town Council collaborates with government institutions, development partners, and civil society.</p><div class="partners-track-wrap"><div class="partners-track" id="partnersTrack"><img src="ucc.jpeg" alt="UCC"><img src="medical.png" alt="NMS"><img src="police.jpeg" alt="police"><img src="gou.png" alt="GoU"><img src="world.png" alt="World Bank"><img src="download.jpeg" alt="CF"><img src="iras.png" alt="IRAS"><img src="ucc.jpeg" alt="UCC"><img src="medical.png" alt="NMS"><img src="police.jpeg" alt="police"><img src="gou.png" alt="GoU"><img src="world.png" alt="World Bank"><img src="download.jpeg" alt="CF"><img src="iras.png" alt="IRAS"></div></div><div class="partners-list"><div class="partner-pill">Ministry of Local Government</div><div class="partner-pill">Ntoroko District Local Government</div><div class="partner-pill">IRAS</div><div class="partner-pill">Children Foundation</div><div class="partner-pill">Uganda Police</div><div class="partner-pill">Uganda Communications Commission</div></div></div></section>
 
 <div class="anti-corruption"><h2>Karugutu Town Council condemns any form of corruption at all levels</h2><p>Report any form of corruption to the Council. Together we build a transparent and accountable government.</p></div>
 
