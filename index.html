@@ -136,15 +136,15 @@
   .nav-item:hover .dropdown { display: flex; }
   .nav-item:hover .dropdown:not(.two-col) { display: block; }
 
-  /* ── HERO WITH CUSTOM IMAGES ── */
+  /* ── HERO WITH CUSTOM IMAGES (LOCAL FILES: hero.jpg, karugutu.jpeg, ka1.jpg) ── */
   .hero { position: relative; overflow: hidden; height: 520px; background: #0a2f1a; }
-  .slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1s ease; background-size: cover; background-position: center 30%; }
-  /* first slide - custom image */
-  .slide:nth-child(1) { background-image: url('https://images.pexels.com/photos/167676/africa-nature-sunset-savannah-167676.jpeg?auto=compress&cs=tinysrgb&w=1600'); background-size: cover; background-position: center; }
-  /* second slide - custom image */
-  .slide:nth-child(2) { background-image: url('https://images.pexels.com/photos/1464029/kenya-africa-masai-mara-safari-1464029.jpeg?auto=compress&cs=tinysrgb&w=1600'); background-size: cover; background-position: center; }
-  /* third slide - custom image */
-  .slide:nth-child(3) { background-image: url('https://images.pexels.com/photos/772803/pexels-photo-772803.jpeg?auto=compress&cs=tinysrgb&w=1600'); background-size: cover; background-position: center; }
+  .slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1s ease; background-size: cover; background-position: center 30%; background-repeat: no-repeat; }
+  /* first slide - hero.jpg */
+  .slide:nth-child(1) { background-image: url('hero.jpg'); background-size: cover; background-position: center; }
+  /* second slide - karugutu.jpeg */
+  .slide:nth-child(2) { background-image: url('karugutu.jpeg'); background-size: cover; background-position: center; }
+  /* third slide - ka1.jpg */
+  .slide:nth-child(3) { background-image: url('ka1.jpg'); background-size: cover; background-position: center; }
   .slide.active { opacity: 1; }
   .slide-overlay {
     position: absolute; inset: 0;
@@ -393,7 +393,7 @@
   </div>
 </nav>
 
-<!-- HERO SLIDER with custom images (pexels high-res) -->
+<!-- HERO SLIDER with local images: hero.jpg, karugutu.jpeg, ka1.jpg -->
 <div class="hero" id="hero">
   <div class="slide active">
     <div class="slide-overlay"><div class="slide-caption"><h2>Welcome to Karugutu Town Council — A Strategic Urban Growth Centre in Ntoroko District, Western Uganda.</h2><a href="#">Learn More</a></div></div>
